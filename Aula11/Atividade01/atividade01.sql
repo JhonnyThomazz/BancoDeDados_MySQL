@@ -24,3 +24,36 @@ insert into funcionario (nomefunc, sexofunc, bairrofunc, salfunc, setorfunc) val
 ('Ralf Borges','M','Jabaquara',1600.00,'Marketing');
 
 select * from funcionario;
+
+####Atividade2 - Continuação####
+
+##01
+use atividade_funcao;
+select sum(salfunc) as total_salarios 
+from funcionario;
+
+##02
+select * from funcionario
+where setorfunc = 'Marketing';
+
+##03
+select setorfunc, avg(salfunc) as media_salario 
+from funcionario
+group by setorfunc
+order by media_salario desc;
+
+##04
+select nomefunc, salfunc 
+from funcionario
+where salfunc < 3000 and bairrofunc = 'Socorro';
+
+#05
+select setorfunc, count(codfunc) as total_func
+from funcionario
+group by setorfunc
+having count(codfunc) > 3
+
+
+
+
+
