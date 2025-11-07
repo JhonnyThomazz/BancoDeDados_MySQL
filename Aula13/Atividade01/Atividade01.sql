@@ -51,6 +51,7 @@ select * from departamento;
 select * from dependente;
 
 ##Atividade01
+use empresa_join2;
 select func.nome as nome_funcionario, count(depen.id) as quantidade_dependentes
 from funcionario func
 inner join dependente depen
@@ -63,5 +64,35 @@ select depart.nome as nome_departamento, func.nome as nome_funcionario
 from departamento depart
 inner join funcionario func
 on depart.id = func.id_departamento
-order by depart.nome asc;
+order by func.nome asc;
 
+##atividade03
+select func.nome as nome_funcionario, depen.nome as nome_dependente
+from funcionario func
+left join dependente depen
+on func.id = depen.id_funcionario;
+
+##atividade04
+select depart.nome as nome_departamento, avg(func.salario) as media_salarial
+from departamento depart
+inner join funcionario func
+on depart.id = func.id_departamento
+group by depart.nome;
+
+##atividade05
+select depart.nome as nome_departamento, func.nome as nome_funcionario
+from departamento depart
+left join funcionario func
+on depart.id = func.id_departamento;
+
+##atividade06
+select sum(salario) as total_salario
+from funcionario;
+
+##atividade07
+select depart.nome as nome_departamento, sum(func.salario) as custo_por_depart
+from departamento depart
+inner join funcionario func
+on depart.id = func.id_departamento
+group by depart.id;
+ 
